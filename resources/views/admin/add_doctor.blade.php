@@ -33,24 +33,33 @@
         <!-- partial -->
         @include('admin.navbar')
         <div class="container-fluid page-body-wrapper">
-            <div class="container">
+            <div class=" container">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{session()->get('message')}}
+                </div>
+                @endif
                 <h1>Add Doctor</h1>
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="POST">
+                        <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group" style="padding-top: 15px;">
                                 <label for="">Doctor Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter Doctor Name">
+                                <input type="text" style="color: #fff;" name="name" class="form-control"
+                                    placeholder="Enter Doctor Name" required>
                             </div>
 
                             <div class="form-group" style="padding-top: 15px;">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number">
+                                <input type="text" style="color: #fff;" name="phone" class="form-control"
+                                    placeholder="Enter Phone Number" required>
                             </div>
 
                             <div class="form-group" style="padding-top: 15px;">
                                 <label for="">Speciality</label>
-                                <select name="speciality" class="form-control" style="color: #fff;">
+                                <select name="speciality" class="form-control" style="color: #fff;" required>
                                     <option value="">-- Select --</option>
                                     <option value="skin">Skin</option>
                                     <option value="eye">Eye</option>
@@ -61,12 +70,13 @@
 
                             <div class="form-group" style="padding-top: 15px;">
                                 <label for="">Room Number</label>
-                                <input type="text" name="room" class="form-control" placeholder="Enter Room Number">
+                                <input type="text" style="color: #fff;" name="room" class="form-control"
+                                    placeholder="Enter Room Number" required>
                             </div>
 
                             <div class="form-group" style="padding-top: 15px;">
                                 <label for="">Doctor Image</label>
-                                <input type="file" name="file" class="form-control">
+                                <input type="file" name="file" class="form-control" required>
                             </div>
 
                             <div class="form-group" style="padding-top: 15px;">
