@@ -35,51 +35,48 @@
             <!-- partial:partials/_navbar.html -->
             @include('admin.navbar')
             <!-- partial -->
-            <div class="container-fluid page-body-wrapper">
-                <div align="center" style="padding-top: 100px;">
-                    @if(session()->has('message'))
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert">x</button>
-                        {{session()->get('message')}}
-                    </div>
-                    @endif
-                    <h1 style="text-alogn: center; margin-bottom: 10px; font-size: 22px;">Show Doctors
-                        Details
-                    </h1>
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr style="background-color: #000;">
-                                <th style="padding-top: 10px; color: #fff;">Name</th>
-                                <th style="padding-top: 10px; color: #fff;">Phone</th>
-                                <th style="padding-top: 10px; color: #fff;">Specilaity</th>
-                                <th style="padding-top: 10px; color: #fff;">Room</th>
-                                <th style="padding-top: 10px; color: #fff;">Image</th>
-                                <th style="padding-top: 10px; color: #fff;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($doctor as $doctors)
-                            <tr align="center" style="background-color: #000;">
-                                <td style="padding: 10px; color: #fff;">{{$doctors->name}}</td>
-                                <td style="padding: 10px; color: #fff;">{{$doctors->phone}}</td>
-                                <td style="padding: 10px; color: #fff;">{{$doctors->speciality}}</td>
-                                <td style="padding: 10px; color: #fff;">{{$doctors->room}}</td>
-                                <td style="padding: 10px;">
-                                    <img src="doctorimage/{{$doctors->image}}" height="100px" width="100px">
-                                </td>
-                                <td colspan="2">
-                                    <a href="{{url('update_doctor',$doctors->id)}}"
-                                        class="btn btn-success btn-sm">Edit</a>
-
-                                    <a onclick="confirm('Are You Sure, You want to delete?')"
-                                        href="{{url('delete_doctor',$doctors->id)}}"
-                                        class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+            <div align="center" style="padding-top: 100px;">
+                @if(session()->has('message'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{session()->get('message')}}
                 </div>
+                @endif
+                <h1 style="text-alogn: center; margin-bottom: 10px; font-size: 22px;">Show Doctors
+                    Details
+                </h1>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr style="background-color: #000;">
+                            <th style="padding-top: 10px; color: #fff;">Name</th>
+                            <th style="padding-top: 10px; color: #fff;">Phone</th>
+                            <th style="padding-top: 10px; color: #fff;">Specilaity</th>
+                            <th style="padding-top: 10px; color: #fff;">Room</th>
+                            <th style="padding-top: 10px; color: #fff;">Image</th>
+                            <th style="padding-top: 10px; color: #fff;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($doctor as $doctors)
+                        <tr align="center" style="background-color: #000;">
+                            <td style="padding: 10px; color: #fff;">{{$doctors->name}}</td>
+                            <td style="padding: 10px; color: #fff;">{{$doctors->phone}}</td>
+                            <td style="padding: 10px; color: #fff;">{{$doctors->speciality}}</td>
+                            <td style="padding: 10px; color: #fff;">{{$doctors->room}}</td>
+                            <td style="padding: 10px;">
+                                <img src="doctorimage/{{$doctors->image}}" height="100px" width="100px">
+                            </td>
+                            <td colspan="2">
+                                <a href="{{url('update_doctor',$doctors->id)}}" class="btn btn-success btn-sm">Edit</a>
+
+                                <a onclick="confirm('Are You Sure, You want to delete?')"
+                                    href="{{url('delete_doctor',$doctors->id)}}"
+                                    class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
             <!-- main-panel ends -->
         </div>
