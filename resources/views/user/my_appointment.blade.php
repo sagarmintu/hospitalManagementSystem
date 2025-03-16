@@ -136,7 +136,8 @@
                     <td style="padding: 10px; color: #fff;">{{$appointments->doctor}}</td>
                     <td style="padding: 10px; color: #fff;">{{$appointments->date}}</td>
                     <td style="padding: 10px; color: #fff;">{{$appointments->message}}</td>
-                    <td style="padding: 10px; color: #fff;">{{$appointments->status}}</td>
+                    <td style="padding: 10px; color: #fff;"><span class="badge badge-secondary">
+                            {{$appointments->status}}</span></td>
                     <td style="padding: 10px; color: #fff;"><a class="btn btn-danger btn-sm"
                             onclick="confirm('Are you sure to cancel the appointment?')"
                             href="{{url('cancel_appointment', $appointments->id)}}">Cancel</a>
